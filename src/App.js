@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import "bootstrap/dist/css/bootstrap.min.css"
+
+import Navbar from "./components/Navbar.js"
+import EditProfile from "./components/EditProfile"
+import CreateUser from "./components/CreateUser"
+import Feed from "./components/Feed"
+import CreatePost from './components/CreatePost.js';
+import Profiles from './components/Profiles.js';
+import DeletePost from './components/DeletePost.js';
+import DeleteUser from './components/DeleteUser.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar/>
+      <br/>
+      <Routes>
+      <Route path = "/" element = {<Feed/>}/>
+      <Route path = "/edit/:id" element = {<EditProfile/>} />
+      <Route path = "/register" element = {<CreateUser/>}/>
+      <Route path = "/create-post" element = {<CreatePost/>}/>
+      <Route path = "/profiles" element = {<Profiles/>}/>
+      <Route path = "/delete-post/:id" element = {<DeletePost/>}/>
+      <Route path = "/delete-user/:id" element = {<DeleteUser/>}/>
+      </Routes>
+    </Router>
   );
 }
 
