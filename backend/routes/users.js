@@ -10,7 +10,6 @@ router.route("/").get((req, res) => {
 });
 
 // Get User by ID
-
 router.route("/:id").get((req, res) => {
   User.findById(req.params.id)
     .then((users) => res.json(users))
@@ -19,7 +18,6 @@ router.route("/:id").get((req, res) => {
 
 
 // Delete User
-
 router.route("/:id").delete((req, res) => {
   User.findByIdAndDelete(req.params.id)
     .then(() => res.json("User deleted!"))
@@ -27,7 +25,6 @@ router.route("/:id").delete((req, res) => {
 });
 
 // Update User 
-
 router.route("/update/:id").post((req, res) => {
 
   User.findById(req.params.id).then(user => {
